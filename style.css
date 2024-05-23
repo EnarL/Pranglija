@@ -1,0 +1,69 @@
+body{
+    display: grid;
+    position: fixed;
+    left:10%;
+    height: 100vh;
+    background-color: #B3C8CF;
+    
+}
+
+a{
+    text-decoration: underline;
+    color: black;
+    font-size: 2rem;
+
+}
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:0px;
+    margin:0;
+    width:500px;
+    height:500px;
+}
+button{
+    border: 1px solid black;
+    background-color: #BED7DC;
+    font-size: 4rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #B3C8CF;
+}
+input{
+    width:300px;
+}
+#tehe, #vastus{
+    font-size:4rem;
+    background-color: #B3C8CF;
+    border:none;
+    color:green;
+    font-weight: bold;
+    
+}
+.result{
+    background-color: #B3C8CF;
+}
+#ajanaitaja, #punktid, #tasemeNumber{
+    font-size:2rem;
+    background-color: #B3C8CF;
+    border:none;
+    color:green;
+    font-weight: bold;
+    text-align: center;
+    width: 100px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+#aeg, #punktisumma, #tase{
+    font-size:2rem;
+    background-color: #B3C8CF;
+    border:none;
+    
+}
+
+
+
