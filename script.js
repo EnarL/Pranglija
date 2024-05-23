@@ -122,3 +122,18 @@ function reset(){
     clearInterval(countdownInterval);
     countdownInterval = setInterval(updateCountdown, 1000);
 }
+
+function login(event) {
+    event.preventDefault();
+    const user = document.getElementById('username').value;
+    const parool = document.getElementById('password').value;
+    if (user === 'test' && parool === 'parool') {
+        alert("Sisselogimine õnnestus!");
+        window.location.href = 'games.html';
+
+
+    }
+    else{
+        alert("Vale kasutajanimi või parool!");
+    }
+}

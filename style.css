@@ -66,4 +66,40 @@ input{
 }
 
 
+/* login page */
+
+.login {
+    width: 300px;
+
+    padding: 20px;
+    border: 1px solid #BED7DC;
+    border-radius: 10px;
+    background-color: #B3C8CF;
+}
+
+.login label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.login input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.login button {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #BED7DC;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
 
