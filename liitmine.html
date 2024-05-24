@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class = "container">
     <a href = "index.html">Tagasi</a>
-    <h1>Harjutamine</h1>
+    <h1>Liitmine</h1>
     <div class="result">
         <span id ="aeg">Aeg <span id = "ajanaitaja" style = "width:50px; height:25px; display: inline-block;border: 4px white solid; background-color:  #BED7DC;" readonly ></span> 
         <span id ="punktisumma">Skoor: <span id = "punktid" style = "width:70px; height:25px; display: inline-block;border: 4px white solid; background-color:  #BED7DC;" readonly></span>
@@ -21,6 +22,7 @@
             <button onclick = "jsDisplay('7')">7</button>
             <button onclick = "jsDisplay('8')">8</button>
             <button onclick = "jsDisplay('9')">9</button>
+            <button class="minus" onclick = "jsDisplay('-')">-</button>
             <button onclick = "jsDisplay('4')">4</button>
             <button onclick = "jsDisplay('5')">5</button>
             <button onclick = "jsDisplay('6')">6</button>
@@ -32,6 +34,7 @@
             <button onclick = "clearDisplay()">C</button>
         </div>
     </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

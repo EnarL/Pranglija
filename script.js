@@ -29,7 +29,7 @@ let oigeteVastusteArv = 0;
 const oigeteVastusteArvElement = document.getElementById('oigeteVastusteArv');
 
 function suurendaTaset() {
-    if (oigeteVastusteArv == 5){
+    if (oigeteVastusteArv === 5){
         tasemeNumber+=1;
         taseElement.textContent = tasemeNumber;
         oigeteVastusteArv = 0;
@@ -41,55 +41,159 @@ function juhuslikArv(min, max){
 
 function minMax(tasemeNumber){
     let min, max;
-    switch(tasemeNumber){
-        case 1: 
-            min = 1;
-            max = 10;
+    let url = document.URL;
+    let filename = url.substring(url.lastIndexOf('/')+1);
+    switch(filename){
+        case 'liitmine.html':
+            switch(tasemeNumber){
+                case 1: 
+                    min = 1;
+                    max = 10;
+                    break;
+                case 2:
+                    min =10;
+                    max = 30;
+                    break;
+                case 3:
+                    min = 30;
+                    max = 50;
+                    break;
+                case 4:
+                    min = 50;
+                    max = 100;
+                    break;
+                case 5:
+                    min = 100;
+                    max = 200;
+                    break;
+                case 6:
+                    min = 200;
+                    max = 500;
+                    break;
+                case 7:
+                    min = 500;
+                    max = 1000;
+                    break;
+            }
             break;
-        case 2:
-            min =10;
-            max = 30;
+    case 'lahutamine.html':
+        switch(tasemeNumber){
+        
+            case 1: 
+                min = 1;
+                max = 10;
+                break;
+            case 2:
+                min = 3;
+                max = 30;
+                break;
+            case 3:
+                min = 5;
+                max = 50;
+                break;
+            case 4:
+                min = 10;
+                max = 100;
+                break;
+            case 5:
+                min = 20;
+                max = 200;
+                break;
+            case 6:
+                min = 50;
+                max = 500;
+                break;
+            case 7:
+                min = 100;
+                max = 1000;
+                break;
+            }
             break;
-        case 3:
-            min = 30;
-            max = 50;
+        case 'korrutamine.html':
+            switch(tasemeNumber){
+
+                case 1:
+                    min = 1;
+                    max = 5;
+                    break;
+                case 2:
+                    min = 5;
+                    max = 10;
+                    break;
+                case 3:
+                    min = 7;
+                    max = 15;
+                    break;
+                case 4:
+                    min = 10;
+                    max = 30;
+                    break;
+                case 5:
+                    min = 15;
+                    max = 45;
+                    break;
+                case 6:
+                    min = 30;
+                    max = 75;
+                    break;
+                case 7:
+                    min = 50;
+                    max = 100;
+                    break;
+            }
             break;
-        case 4:
-            min = 50;
-            max = 100;
-            break;
-        case 5:
-            min = 100;
-            max = 200;
-            break;
-    }
+}
     return [min, max];
 }
 
 function genereeriTehe(tasemeNumber){
-    const arv1 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
-    const arv2 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
-    document.getElementById('tehe').innerText = `${arv1} + ${arv2} = `;
-    return arv1+arv2;
+    let arv1 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
+    let arv2 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
+    let operation;
+    let url = document.URL;
+    let filename = url.substring(url.lastIndexOf('/')+1);
+    switch(filename){
+        case 'liitmine.html':
+            operation = 1;
+            break;
+        case 'lahutamine.html':
+            operation = 2;
+            break;
+        case 'korrutamine.html':
+            operation = 3;
+            break;
+    }
+    switch(operation) {
+        case 1: // Addition
+            document.getElementById('tehe').innerText = `${arv1} + ${arv2} = `;
+            return arv1 + arv2;
+        case 2: // Subtraction
+            document.getElementById('tehe').innerText = `${arv1} - ${arv2} = `;
+            return arv1 - arv2;
+        case 3: // Multiplication
+            document.getElementById('tehe').innerText = `${arv1} * ${arv2} = `;
+            return arv1 * arv2;
+
+    }
 }
+
 function kontrolliVastust() {
     const kasutajaVastus = parseInt(document.getElementById('vastus').value);
-    
-    if (kasutajaVastus == oigeVastus) {
-        suurendaPunkte(tasemeNumber)
-        oigeteVastusteArv++;
-        if (tasemeNumber == 5 && oigeteVastusteArv == 5) {
-            alert("Harjutus edukalt läbitud!")
-            reset();
-            
-        }
 
+    if (kasutajaVastus === oigeVastus) {
+        oigeteVastusteArv++;
+        suurendaPunkte(tasemeNumber);
+
+        if (tasemeNumber === 7 && oigeteVastusteArv === 5) {
+            document.getElementById('vastus').value = '';
+            alert("Harjutus edukalt läbitud!")
+            alert("Sinu punktisumma on: " + punktid);
+            reset();
+        }
         suurendaTaset();
         oigeVastus = genereeriTehe(tasemeNumber);
         document.getElementById('vastus').value = '';
-        
-    }
-     else {
+    } else {
         oigeteVastusteArv--;
         clearDisplay();
     }
@@ -101,7 +205,7 @@ countdownElement.textContent = aeg;
 function updateCountdown() {
     countdownElement.textContent = aeg;
     if (aeg > 0) {
-        aeg--;} 
+        aeg--;}
     else {
         clearInterval(countdownInterval);
     }
@@ -130,8 +234,6 @@ function login(event) {
     if (user === 'test' && parool === 'parool') {
         alert("Sisselogimine õnnestus!");
         window.location.href = 'games.html';
-
-
     }
     else{
         alert("Vale kasutajanimi või parool!");
