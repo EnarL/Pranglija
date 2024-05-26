@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranglija</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class = "container">
+    <a href = "index.html">Tagasi</a>
+    <h1>Lünkimine</h1>
+    <div class="result">
+        <span id ="aeg">Aeg <span id = "ajanaitaja" style = "width:50px; height:25px; display: inline-block;border: 4px white solid; background-color:  #BED7DC;" readonly ></span>
+        <span id ="punktisumma">Skoor: <span id = "punktid" style = "width:70px; height:25px; display: inline-block;border: 4px white solid; background-color:  #BED7DC;" readonly></span>
+        <span id ="tase">Tase <span id = "tasemeNumber" style = "width: 30px; height:25px; display: inline-block; border: 4px white solid; background-color:  #BED7DC;" readonly ></span>
+    </div>
+    <div class="calculator">
+        <span id="tehe"></span>
+        <input type="text" id="vastus" autocomplete="off" readonly disabled/>
+        <div id="buttons">
+            <button onclick = "jsDisplay('7')">7</button>
+            <button onclick = "jsDisplay('8')">8</button>
+            <button onclick = "jsDisplay('9')">9</button>
+            <button class="minus" onclick = "jsDisplay('-')">-</button>
+            <button onclick = "jsDisplay('4')">4</button>
+            <button onclick = "jsDisplay('5')">5</button>
+            <button onclick = "jsDisplay('6')">6</button>
+            <button onclick = "jsDisplay('1')">1</button>
+            <button onclick = "jsDisplay('2')">2</button>
+            <button onclick = "jsDisplay('3')">3</button>
+            <button onclick = "jsDisplay('0')">0</button>
+            <button onclick = "kontrolliVastust()">OK</button>
+            <button onclick = "clearDisplay()">C</button>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -44,7 +44,7 @@ function minMax(tasemeNumber){
     let url = document.URL;
     let filename = url.substring(url.lastIndexOf('/')+1);
     switch(filename){
-        case 'liitmine.html':
+        default :
             switch(tasemeNumber){
                 case 1: 
                     min = 1;
@@ -76,6 +76,39 @@ function minMax(tasemeNumber){
                     break;
             }
             break;
+    case 'jagamine.html':
+        switch(tasemeNumber){
+            case 1:
+                min = 1;
+                max = 10;
+                break;
+            case 2:
+                min = 4;
+                max = 20;
+                break;
+            case 3:
+                min = 10;
+                max = 30;
+                break;
+            case 4:
+                min = 10;
+                max = 50;
+                break;
+            case 5:
+                min = 10;
+                max = 50;
+                break;
+            case 6:
+                min = 20;
+                max = 100;
+                break;
+            case 7:
+                min = 30;
+                max = 250;
+                break;
+        }
+        break;
+
     case 'lahutamine.html':
         switch(tasemeNumber){
         
@@ -149,12 +182,13 @@ function minMax(tasemeNumber){
 function genereeriTehe(tasemeNumber){
     let arv1 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
     let arv2 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
+    let arv3 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
     let operation;
     let url = document.URL;
     let filename = url.substring(url.lastIndexOf('/')+1);
     switch(filename){
-        case 'liitmine.html':
-            operation = 1;
+        case 'jagamine.html':
+            operation = 4;
             break;
         case 'lahutamine.html':
             operation = 2;
@@ -162,6 +196,10 @@ function genereeriTehe(tasemeNumber){
         case 'korrutamine.html':
             operation = 3;
             break;
+        default:
+            operation = 5;
+            break;
+
     }
     switch(operation) {
         case 1: // Addition
@@ -173,6 +211,32 @@ function genereeriTehe(tasemeNumber){
         case 3: // Multiplication
             document.getElementById('tehe').innerText = `${arv1} * ${arv2} = `;
             return arv1 * arv2;
+        case 4:// Division
+            arv2 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
+            arv1 = arv2 * juhuslikArv(1 * tasemeNumber, 10 + tasemeNumber * tasemeNumber - 1); // arv1 is a multiple of arv2
+            document.getElementById('tehe').innerText = `${arv1} / ${arv2} = `;
+            return arv1 / arv2;
+
+
+
+        case 5: // filling the gap
+            if (tasemeNumber === 1) {
+                document.getElementById('tehe').innerText = `${arv1} + ___ = ${arv1 + arv2}`;
+                return arv2;
+            }
+            else{
+                let random = juhuslikArv(1,2);
+                if (random === 1){
+                    document.getElementById('tehe').innerText = `${arv1} + ${arv2}  + ___= ${arv1 + arv2 + arv3}`;
+                    return arv3;
+                }
+                else{
+                    document.getElementById('tehe').innerText = `${arv1} + ___ + ${arv3} = ${arv1 + arv2 + arv3}`;
+                    return arv2;
+                }
+
+            }
+
 
     }
 }
