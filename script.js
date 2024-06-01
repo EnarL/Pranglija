@@ -1,8 +1,7 @@
 const display = document.getElementById('vastus');
 
 function jsDisplay(input){
-    
- vastus.value += input;
+    vastus.value += input;
 }
 
 function clearDisplay(){
@@ -16,7 +15,7 @@ let punktid = 0;
 const punktidElement = document.getElementById('punktid');
 punktidElement.textContent = punktid;
 function suurendaPunkte(tasemeNumber) {
-    
+
     punktid+= juhuslikArv(4,7) * tasemeNumber;
     punktidElement.textContent = punktid;
 }
@@ -46,7 +45,7 @@ function minMax(tasemeNumber){
     switch(filename){
         default :
             switch(tasemeNumber){
-                case 1: 
+                case 1:
                     min = 1;
                     max = 10;
                     break;
@@ -111,8 +110,8 @@ function minMax(tasemeNumber){
 
     case 'lahutamine.html':
         switch(tasemeNumber){
-        
-            case 1: 
+
+            case 1:
                 min = 1;
                 max = 10;
                 break;
@@ -183,6 +182,8 @@ function genereeriTehe(tasemeNumber){
     let arv1 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
     let arv2 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
     let arv3 = juhuslikArv(minMax(tasemeNumber)[0], minMax(tasemeNumber)[1]);
+    let vastus1 = arv1+arv2;
+    let vastus2 = arv1+arv2+arv3;
     let operation;
     let url = document.URL;
     let filename = url.substring(url.lastIndexOf('/')+1);
@@ -195,6 +196,9 @@ function genereeriTehe(tasemeNumber){
             break;
         case 'korrutamine.html':
             operation = 3;
+            break;
+        case 'liitmine.html':
+            operation = 1;
             break;
         default:
             operation = 5;
@@ -221,17 +225,22 @@ function genereeriTehe(tasemeNumber){
 
         case 5: // filling the gap
             if (tasemeNumber === 1) {
-                document.getElementById('tehe').innerText = `${arv1} + ___ = ${arv1 + arv2}`;
+               document.getElementById('tehe').innerText = `${arv1} + ___ = ${vastus1}`;
+
                 return arv2;
+
             }
             else{
+
                 let random = juhuslikArv(1,2);
                 if (random === 1){
-                    document.getElementById('tehe').innerText = `${arv1} + ${arv2}  + ___= ${arv1 + arv2 + arv3}`;
+                    document.getElementById('tehe').innerText = `${arv1} + ${arv2}  + ___ = ${vastus2}`;
                     return arv3;
                 }
                 else{
-                    document.getElementById('tehe').innerText = `${arv1} + ___ + ${arv3} = ${arv1 + arv2 + arv3}`;
+
+                    document.getElementById('tehe').innerText = `${arv1} + ___ + ${arv3} = ${vastus2}`;
+
                     return arv2;
                 }
 
@@ -257,6 +266,7 @@ function kontrolliVastust() {
         suurendaTaset();
         oigeVastus = genereeriTehe(tasemeNumber);
         document.getElementById('vastus').value = '';
+        document.getElementById('vastus').focus();
     } else {
         oigeteVastusteArv--;
         clearDisplay();
@@ -271,7 +281,9 @@ function updateCountdown() {
     if (aeg > 0) {
         aeg--;}
     else {
+        alert("Aeg on otsas!");
         clearInterval(countdownInterval);
+        reset();
     }
 }
 countdownInterval = setInterval(updateCountdown, 1000);
@@ -303,3 +315,11 @@ function login(event) {
         alert("Vale kasutajanimi või parool!");
     }
 }
+document.getElementById('vastus').addEventListener('keypress', function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        kontrolliVastust();
+    }
+});
+
+document.getElementById('vastus').focus();

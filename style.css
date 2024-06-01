@@ -85,7 +85,14 @@ input{
     border:none;
 
 }
+#vastus {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: green;  /* To keep the text color the same as the rest of the page */
+    pointer-events: none;
 
+}
 
 /* login page */
 

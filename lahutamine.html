@@ -17,7 +17,7 @@
     </div>
     <div class="calculator">
         <span id="tehe"></span>
-        <input type="text" id="vastus" autocomplete="off" readonly disabled/>
+        <input type="text" id="vastus" autocomplete="off" onkeypress="handleKeypress(event)" />
         <div id="buttons">
             <button onclick = "jsDisplay('7')">7</button>
             <button onclick = "jsDisplay('8')">8</button>
