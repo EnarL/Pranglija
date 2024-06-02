@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranglija</title>
+    <title>Logi sisse - Pranglija</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href = "index.html">Tagasi</a>
-    <h1 style = "position:fixed; top: 20%">Logi sisse</h1>
-    <div class="login" style = "position:fixed; top: 30%">
-        <form method="post">
-            <label for="username">Kasutajanimi:</label>
-            <input type="text" id="username"  required>
-            <label for="password">Parool:</label>
-            <input type="password" id="password" required>
-            <button type="submit" onclick = login(event)>Logi sisse</button>
-        </form>
-
-        <p>Kasutajanimi: test</p>
-        <p>Parool: parool</p>
+    <div class="container">
+        <a class="back-link" href="index.html"><i class="fas fa-arrow-left"></i> Tagasi</a>
+        <h1>Logi sisse</h1>
+        <div class="login">
+            <form method="post" onsubmit="login(event)">
+                <label for="username">Kasutajanimi:</label>
+                <input type="text" id="username" required>
+                <label for="password">Parool:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Logi sisse</button>
+            </form>
+            <br>
+            <p><strong>Testimiseks:</strong></p>
+            <p>Kasutajanimi: test</p>
+            <p>Parool: parool</p>
+        </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script src="script.js"></script>
 </body>
+</html>

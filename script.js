@@ -50,28 +50,28 @@ function minMax(tasemeNumber){
                     max = 10;
                     break;
                 case 2:
-                    min =10;
-                    max = 30;
-                    break;
-                case 3:
                     min = 30;
                     max = 50;
                     break;
-                case 4:
+                case 3:
                     min = 50;
                     max = 100;
                     break;
-                case 5:
-                    min = 100;
-                    max = 200;
-                    break;
-                case 6:
+                case 4:
                     min = 200;
                     max = 500;
                     break;
-                case 7:
+                case 5:
                     min = 500;
                     max = 1000;
+                    break;
+                case 6:
+                    min = 1000;
+                    max = 2000;
+                    break;
+                case 7:
+                    min = 2000;
+                    max = 5000;
                     break;
             }
             break;
@@ -82,95 +82,61 @@ function minMax(tasemeNumber){
                 max = 10;
                 break;
             case 2:
-                min = 4;
-                max = 20;
-                break;
-            case 3:
                 min = 10;
                 max = 30;
                 break;
+            case 3:
+                min = 20;
+                max = 70;
+                break;
             case 4:
-                min = 10;
-                max = 50;
+                min = 50;
+                max = 150;
                 break;
             case 5:
-                min = 10;
-                max = 50;
+                min = 50;
+                max = 300;
                 break;
             case 6:
-                min = 20;
-                max = 100;
+                min = 100;
+                max = 700;
                 break;
             case 7:
-                min = 30;
-                max = 250;
+                min = 400;
+                max = 2500;
                 break;
         }
         break;
-
-    case 'lahutamine.html':
-        switch(tasemeNumber){
-
-            case 1:
-                min = 1;
-                max = 10;
-                break;
-            case 2:
-                min = 3;
-                max = 30;
-                break;
-            case 3:
-                min = 5;
-                max = 50;
-                break;
-            case 4:
-                min = 10;
-                max = 100;
-                break;
-            case 5:
-                min = 20;
-                max = 200;
-                break;
-            case 6:
-                min = 50;
-                max = 500;
-                break;
-            case 7:
-                min = 100;
-                max = 1000;
-                break;
-            }
-            break;
         case 'korrutamine.html':
             switch(tasemeNumber){
 
                 case 1:
                     min = 1;
-                    max = 5;
+                    max = 10;
                     break;
                 case 2:
                     min = 5;
-                    max = 10;
+                    max = 20;
                     break;
                 case 3:
                     min = 7;
-                    max = 15;
+                    max = 25;
                     break;
                 case 4:
                     min = 10;
-                    max = 30;
+                    max = 50;
                     break;
                 case 5:
-                    min = 15;
-                    max = 45;
+                    min = 25;
+                    max = 80;
                     break;
                 case 6:
-                    min = 30;
-                    max = 75;
+                    min = 50;
+                    max = 125;
                     break;
                 case 7:
-                    min = 50;
-                    max = 100;
+                    min = 100;
+                    max = 250;
                     break;
             }
             break;
@@ -321,5 +287,6 @@ document.getElementById('vastus').addEventListener('keypress', function(event) {
         kontrolliVastust();
     }
 });
+
 
 document.getElementById('vastus').focus();

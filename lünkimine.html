@@ -8,15 +8,15 @@
 </head>
 <body>
 <div class = "container">
-    <a href = "index.html">Tagasi</a>
+    <a class="back-link" href="index.html"><i class="fas fa-arrow-left"></i> Tagasi</a>
     <h1>Lünkimine</h1>
     <div class="result">
-        <span id ="aeg">Aeg <span id = "ajanaitaja" style = "width:50px; height:25px; display: inline-block;border: 4px white solid; background-color:  #BED7DC;" readonly ></span>
-        <span id ="punktisumma">Skoor: <span id = "punktid" style = "width:70px; height:25px; display: inline-block;border: 4px white solid; background-color:  #BED7DC;" readonly></span>
-        <span id ="tase">Tase <span id = "tasemeNumber" style = "width: 30px; height:25px; display: inline-block; border: 4px white solid; background-color:  #BED7DC;" readonly ></span>
+        <span id ="aeg">Aeg <span id = "ajanaitaja" style = "width:50px; " readonly ></span>
+        <span id ="punktisumma">Skoor: <span id = "punktid" style = "width:70px;" readonly></span>
+        <span id ="tase">Tase <span id = "tasemeNumber" style = "width: 30px;" readonly ></span>
     </div>
     <div class="calculator">
-        <div id="tehe"></div>
+        <span id="tehe"></span>
         <input type="text" id="vastus" autocomplete="off" onkeypress="handleKeypress(event)" />
         <div id="buttons">
             <button onclick = "jsDisplay('7')">7</button>
@@ -35,6 +35,7 @@
         </div>
     </div>
 </div>
-<script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
