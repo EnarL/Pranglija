@@ -1,1 +1,1 @@
-Tehtud suve jooksul isiklikust huvist, inspiratsiooni võtsin endisest miksikese pranglimise versioonist.
+Tehtud kevade jooksul isiklikust huvist, inspiratsiooni võtsin endisest miksikese pranglimise versioonist.
