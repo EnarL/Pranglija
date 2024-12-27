@@ -1,3 +1,1 @@
-# Pranglija
-
-https://aesthetic-figolla-a2feac.netlify.app/
+Tehtud suve jooksul isiklikust huvist, inspiratsiooni võtsin endisest miksikese pranglimise versioonist.
